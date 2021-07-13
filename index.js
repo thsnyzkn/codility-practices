@@ -1,6 +1,6 @@
 // run `node index.js` in the terminal
 
-function solution(N) {
+function binaryGap(N) {
   const binary = N.toString(2);
   const indicesOfOne = [...binary].map((num, index) => {
     return num === '1' && index;
@@ -17,4 +17,9 @@ function solution(N) {
   }
   return maxDiff;
 }
-console.log(solution(32));
+
+function shiftRight(A, K) {
+  return A.map((_, i, arr) =>
+    i - K + arr.length < arr.length ? arr[i - K + arr.length] : arr[i - K]
+  );
+}
