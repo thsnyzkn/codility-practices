@@ -17,9 +17,16 @@ function binaryGap(N) {
   }
   return maxDiff;
 }
-
-function shiftRight(A, K) {
+//My solution
+function cyclicRotation(A, K) {
   return A.map((_, i, arr) =>
     i - K + arr.length < arr.length ? arr[i - K + arr.length] : arr[i - K]
   );
+}
+
+//Awesome solution
+function solution(A, K) {
+  K = K % A.length;
+  const sliceIndex = A.length - K;
+  return [...A.slice(sliceIndex), ...A.slice(0, sliceIndex)];
 }
