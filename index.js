@@ -25,8 +25,23 @@ function cyclicRotation(A, K) {
 }
 
 //Awesome solution
-function solution(A, K) {
+function cyclicRotationSolution(A, K) {
   K = K % A.length;
   const sliceIndex = A.length - K;
   return [...A.slice(sliceIndex), ...A.slice(0, sliceIndex)];
+}
+function oddOccurences(A) {
+  // write your code in JavaScript (Node.js 8.9.4)
+
+  if (A.length % 2 === 0) {
+    return A[0];
+  }
+  for (let i = 0; i < A.length; i++) {
+    if (A.slice(1).indexOf(A[0]) > -1) {
+      const indx = A.slice(1).indexOf(A[0]);
+      A.splice(0, 1);
+      A.splice(indx, 1);
+    }
+  }
+  return A[0];
 }
